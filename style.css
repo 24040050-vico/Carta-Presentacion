@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500&display=swap');
+
+:root {
+  --bg: #f6f3ec;
+  --card-bg: #ffffff;
+  --border: #eae5d9;
+  --text: #1f1d1a;
+  --text-muted: #8a8173;
+  --accent-1: #d17a55;
+  --accent-2: #34567a;
+  --accent-3: #6f8f6a;
+  --accent-4: #bd9536;
+  --shadow: rgba(31, 29, 26, 0.06);
+  --shadow-hover: rgba(31, 29, 26, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 88px 24px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.hero p {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-1);
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  max-width: 980px;
+  width: 100%;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 38px 26px 30px;
+  width: 210px;
+  text-align: center;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--card-accent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px var(--shadow-hover);
+  border-color: transparent;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:nth-child(1) { --card-accent: var(--accent-1); }
+.card:nth-child(2) { --card-accent: var(--accent-2); }
+.card:nth-child(3) { --card-accent: var(--accent-3); }
+.card:nth-child(4) { --card-accent: var(--accent-4); }
+
+.card-avatar {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--card-accent);
+  background: color-mix(in srgb, var(--card-accent) 12%, white);
+  border: 1.5px solid color-mix(in srgb, var(--card-accent) 35%, white);
+}
+
+.card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.footer {
+  margin-top: 72px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
